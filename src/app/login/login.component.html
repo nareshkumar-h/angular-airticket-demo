@@ -1,0 +1,51 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+          <h1>Login</h1>
+      </div>
+
+      <!-- Login Form -->
+      <!-- Event Binding - one way => html to component (click)-->
+      <form #loginForm="ngForm" (ngSubmit)="login()">
+          <input type="text"  [(ngModel)]="username" id="username" class="fadeIn second" name="username" placeholder="username" required>
+          <input type="password" [(ngModel)]="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
+          <button type="submit"   [disabled]="loginForm.invalid" class="btn btn-primary" id="submitButton">Log In</button>
+          <!-- attribute binding <button disabled="true"]-->
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+          <br>
+          <a class="underlineHover" routerLink="register">Click here to sign up :)</a>
+      </div>
+  </div>
+</div>
+<script src="../validator/Validator.js"></script>
+<script src="../validator/UserValidator.js"></script>
+<script src="../validator/PasswordValidator.js"></script>
+
+<script>
+ /* let submit = document.getElementById('submitButton');
+
+  submit.addEventListener("click", function () {
+      event.preventDefault();
+
+      //getting values from the form fields.
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+
+      //validating username and password.
+      let isUsernameValidated = UserValidator.validateUser(username);
+      let isPasswordValidated = PasswordValidator.validatePassword(password);
+      let isUserExists = Validator.isUserExists(username, password);
+
+      //checking both user name and password is validated.
+      if (isUsernameValidated && isPasswordValidated && isUserExists) { //checking whether the username is registered or not.
+          window.location.assign("display.html");
+          alert("Successfully Logged in.");
+      }
+  });*/
+</script>
